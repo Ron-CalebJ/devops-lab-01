@@ -12,3 +12,10 @@ Prepare for GH-200 and AZ-400
 
 - Completed my first Git commit
 - Pushed my first repository to GitHub
+
+Skills I Am Learning
+Git
+GitHub
+GitHub Actions
+Terraform
+Azure DevOps
