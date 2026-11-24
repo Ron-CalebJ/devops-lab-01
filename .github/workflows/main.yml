@@ -3,14 +3,21 @@ name: My First GitHub Actions Workflow
 on: push
 
 jobs:
-  hello-job:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Show repository files
         run: ls
-        
+
       - name: Say hello
         run: echo "Hello Ronnel! My first GitHub Actions workflow is running."
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy application
+        run: echo "Deploying application... (simulation only)"
