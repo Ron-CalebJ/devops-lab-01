@@ -15,6 +15,12 @@ jobs:
       - name: Say hello
         run: echo "Hello Ronnel! My first GitHub Actions workflow is running."
 
+      - name: Simulate failed test
+        run: |
+          echo "Running tests..."
+          echo "❌ A test failed!"
+          exit 1
+
   deploy:
     needs: test
     runs-on: ubuntu-latest
