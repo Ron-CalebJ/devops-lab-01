@@ -20,9 +20,29 @@ jobs:
           echo "Running tests..."
           echo "✅ All tests passed!"
 
+      - name: Create test report
+        run: |
+          echo "Test Report" > report.txt
+          echo "Result: All tests passed" >> report.txt
+          cat report.txt
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: report.txt
+
   deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
+      - name: Download test report
+        uses: actions/download-artifact@v4
+        with:
+          name: test-report
+
+      - name: Show test report
+        run: cat report.txt
+
       - name: Deploy application
         run: echo "Deploying application... (simulation only)"
